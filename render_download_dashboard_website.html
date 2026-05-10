@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatApp Desktop Download</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    position:relative;
+}
+
+.glow1{
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#3b82f6;
+    border-radius:50%;
+    filter:blur(140px);
+    top:-150px;
+    left:-150px;
+    opacity:0.22;
+}
+
+.glow2{
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:#8b5cf6;
+    border-radius:50%;
+    filter:blur(140px);
+    bottom:-150px;
+    right:-150px;
+    opacity:0.22;
+}
+
+.container{
+    width:1200px;
+    max-width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    position:relative;
+    z-index:5;
+}
+
+.left h1{
+    font-size:68px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.left p{
+    color:#cbd5e1;
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 34px;
+    border:none;
+    border-radius:18px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+}
+
+.primary{
+    background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+    color:white;
+    box-shadow:0 15px 35px rgba(59,130,246,0.35);
+}
+
+.secondary{
+    background:rgba(255,255,255,0.08);
+    color:white;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.stats{
+    margin-top:45px;
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    padding:22px;
+    border-radius:24px;
+    min-width:170px;
+}
+
+.card h2{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.right{
+    display:flex;
+    justify-content:center;
+}
+
+.mockup{
+    width:420px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:32px;
+    overflow:hidden;
+    backdrop-filter:blur(18px);
+    box-shadow:0 25px 60px rgba(0,0,0,0.5);
+}
+
+.mockup-top{
+    padding:18px 22px;
+    background:rgba(255,255,255,0.05);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-box{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+.window-btns{
+    display:flex;
+    gap:8px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.red{ background:#ef4444; }
+.yellow{ background:#f59e0b; }
+.green{ background:#22c55e; }
+
+.chat-area{
+    padding:25px;
+}
+
+.chat-box{
+    background:rgba(255,255,255,0.04);
+    border-radius:18px;
+    padding:16px;
+    margin-bottom:18px;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+}
+
+.avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+}
+
+.msg{
+    color:#cbd5e1;
+    line-height:1.7;
+    font-size:14px;
+}
+
+.download-section{
+    padding:100px 40px;
+    text-align:center;
+}
+
+.download-section h2{
+    font-size:52px;
+    margin-bottom:20px;
+}
+
+.download-section p{
+    color:#94a3b8;
+    max-width:700px;
+    margin:auto;
+    line-height:1.9;
+    margin-bottom:45px;
+}
+
+.download-card{
+    width:500px;
+    max-width:100%;
+    margin:auto;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:30px;
+    padding:40px;
+    backdrop-filter:blur(18px);
+}
+
+.download-card h3{
+    font-size:34px;
+    margin-bottom:18px;
+}
+
+.download-card ul{
+    text-align:left;
+    list-style:none;
+    margin:30px 0;
+}
+
+.download-card li{
+    margin-bottom:16px;
+    color:#cbd5e1;
+}
+
+.footer{
+    padding:35px;
+    text-align:center;
+    color:#64748b;
+    border-top:1px solid rgba(255,255,255,0.06);
+}
+
+@media(max-width:950px){
+
+.container{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.left h1{
+    font-size:52px;
+}
+
+.stats{
+    justify-content:center;
+}
+
+.buttons{
+    justify-content:center;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<div class="container">
+
+<div class="left">
+
+<h1>
+Modern <span class="gradient">Desktop Chat</span><br>
+Experience
+</h1>
+
+<p>
+Download ChatApp Desktop for fast realtime messaging, secure cloud sync, automatic updates, and a beautiful desktop experience.
+</p>
+
+<div class="buttons">
+
+<a class="btn primary" href="/downloads/ChatApp Setup.exe" download>
+⬇ Download for Windows
+</a>
+
+<a class="btn secondary" href="#download">
+View Features
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="card">
+<h2>10K+</h2>
+<p>Downloads</p>
+</div>
+
+<div class="card">
+<h2>99.9%</h2>
+<p>Uptime</p>
+</div>
+
+<div class="card">
+<h2>v1.0.0</h2>
+<p>Latest Version</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="mockup">
+
+<div class="mockup-top">
+
+<div class="logo">
+<div class="logo-box">C</div>
+<div>
+<h3>ChatApp</h3>
+<small style="color:#94a3b8">Desktop Edition</small>
+</div>
+</div>
+
+<div class="window-btns">
+<div class="dot red"></div>
+<div class="dot yellow"></div>
+<div class="dot green"></div>
+</div>
+
+</div>
+
+<div class="chat-area">
+
+<div class="chat-box">
+<div class="user">
+<div class="avatar"></div>
+<div>
+<h4>Alex</h4>
+<small style="color:#94a3b8">Online</small>
+</div>
+</div>
+<div class="msg">
+Realtime messaging is working perfectly 🚀
+</div>
+</div>
+
+<div class="chat-box">
+<div class="user">
+<div class="avatar"></div>
+<div>
+<h4>Ojas</h4>
+<small style="color:#94a3b8">Typing...</small>
+</div>
+</div>
+<div class="msg">
+The desktop installer UI looks amazing 🔥
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<section class="download-section" id="download">
+
+<h2>Download ChatApp</h2>
+
+<p>
+Install the latest version of ChatApp Desktop and enjoy realtime cloud messaging with modern desktop performance.
+</p>
+
+<div class="download-card">
+
+<h3>Windows Installer</h3>
+
+<p style="color:#94a3b8; line-height:1.8;">
+Includes automatic updates, notifications, realtime sync, and secure cloud connection.
+</p>
+
+<ul>
+<li>✔ Setup Wizard Included</li>
+<li>✔ Automatic Updates</li>
+<li>✔ Realtime Socket.IO Messaging</li>
+<li>✔ Desktop Notifications</li>
+<li>✔ Secure Cloud Backend</li>
+</ul>
+
+<a class="btn primary" style="width:100%; justify-content:center;" href="/downloads/ChatApp Setup.exe" download>
+⬇ Download Setup.exe
+</a>
+
+</div>
+
+</section>
+
+<div class="footer">
+© 2026 ChatApp Desktop — All Rights Reserved
+</div>
+
+</body>
+</html>
